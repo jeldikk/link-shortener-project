@@ -13,6 +13,15 @@ export function SiteHeader() {
           </span>
         </Link>
 
+        <nav className="ml-8 hidden items-center gap-6 sm:flex">
+          <Link
+            href="/about"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            About
+          </Link>
+        </nav>
+
         <div className="flex flex-1 items-center justify-end gap-3">
           <Show when="signed-out">
             <SignInButton mode="modal">
