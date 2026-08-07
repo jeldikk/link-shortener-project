@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Link Shortener Project
+
+Link Shortener is a Next.js application for creating, sharing, and managing short links with a clean landing page experience and authenticated user flows.
+
+## Project Summary
+
+- Public marketing site for the product
+- Clerk-powered authentication with modal sign-in and sign-up
+- Protected dashboard route for signed-in users
+- Neon Postgres + Drizzle ORM setup for database-backed features
+- shadcn/ui-based interface styled with Tailwind CSS
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **UI:** React 19, shadcn/ui, Tailwind CSS v4, Lucide icons
+- **Authentication:** Clerk
+- **Database:** Neon Postgres
+- **ORM / DB tooling:** Drizzle ORM, Drizzle Kit
+- **Linting:** ESLint
+
+## Repository Structure
+
+```text
+app/          App Router pages and layouts
+components/   Shared UI and site components
+db/           Database client and schema files
+docs/         Project-specific development rules
+lib/          Shared utilities
+proxy.ts      Clerk middleware setup
+```
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Set up environment variables
+
+Create a local environment file:
+
+```bash
+cp .env.example .env.local
+```
+
+If `.env.example` does not exist in your local checkout, create `.env.local` manually and add the values below:
+
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+DATABASE_URL=your_neon_postgres_connection_string
+```
+
+#### Environment details
+
+- `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`: from your Clerk application
+- `CLERK_SECRET_KEY`: from your Clerk application
+- `DATABASE_URL`: Neon Postgres connection string used by the app and Drizzle config
+
+### 3. Start the local development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Development Workflow
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Common commands
 
-## Learn More
+```bash
+npm run dev    # start local development server
+npm run lint   # run ESLint
+npm run build  # create production build
+npm run start  # start production build locally
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Working on the repo
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Install dependencies with `npm install`
+2. Add your local secrets to `.env.local`
+3. Run `npm run dev`
+4. Make changes in `app/`, `components/`, `db/`, or `lib/`
+5. Run `npm run lint` before submitting changes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes for Contributors
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- This project uses the **App Router**
+- Authentication is handled only through **Clerk**
+- Route protection is configured in `/home/runner/work/link-shortener-project/link-shortener-project/proxy.ts`
+- Database configuration is defined in `/home/runner/work/link-shortener-project/link-shortener-project/drizzle.config.ts`
+- Project-specific implementation rules live in `/home/runner/work/link-shortener-project/link-shortener-project/docs/`
