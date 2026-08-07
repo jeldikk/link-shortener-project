@@ -1,14 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { SignUpButton } from "@clerk/nextjs";
-import {
-  Link2,
-  BarChart3,
-  Shield,
-  Zap,
-  Globe,
-  Copy,
-} from "lucide-react";
+import { Link2, BarChart3, Shield, Zap, Globe, Copy } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -90,24 +83,27 @@ export default async function HomePage() {
               Get started for free
             </Button>
           </SignUpButton>
-          <Button variant="outline" size="lg" className="h-10 px-6" asChild>
-            <a href="#features">See features</a>
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-10 px-6"
+            render={<a href="#features" />}
+          >
+            See features
           </Button>
         </div>
       </section>
 
       {/* Features */}
-      <section
-        id="features"
-        className="border-t bg-muted/40 px-6 py-20"
-      >
+      <section id="features" className="border-t bg-muted/40 px-6 py-20">
         <div className="mx-auto max-w-5xl">
           <div className="mb-12 text-center">
             <h2 className="text-3xl font-bold tracking-tight">
               Everything you need
             </h2>
             <p className="mt-3 text-muted-foreground">
-              All the tools to manage and understand your links in one dashboard.
+              All the tools to manage and understand your links in one
+              dashboard.
             </p>
           </div>
 
