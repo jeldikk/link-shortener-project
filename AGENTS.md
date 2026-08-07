@@ -24,6 +24,7 @@ The `docs/` directory contains the authoritative standards for this project. Eac
 
 - [Authentication](docs/auth.md) — Clerk-only auth, protected routes, modal sign-in/sign-up
 - [UI Components](docs/ui-components.md) — shadcn/ui only, no custom components, Lucide icons
+- [Git Workflow](docs/git-workflow.md) — branch naming (`copilot/feat/` prefix, lower-kebab-case), PR requirements
 
 
 ## Quick Rules
